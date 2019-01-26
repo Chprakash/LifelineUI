@@ -1,0 +1,193 @@
+<div id="wrapper" class="business-bg">
+  
+  <app-top-nav></app-top-nav>
+
+
+
+
+<div class="container-fluid sign-form business-bg">
+<div class="row">
+
+
+
+<div class="wrapper">
+
+    <div class="side-bg">
+    <app-side-menu></app-side-menu>
+  </div>
+  
+  
+  
+  
+  
+  <div id="content">
+                 <button type="button" id="sidebarCollapse" class="navbar-btn">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                  </button>
+                
+
+             
+          
+    <div class="form-container">
+
+<div class="row d-flex justify-content-center mb-3">
+
+ <div class="col-sm-10">
+ 
+ <h3 class="my-title"><span class="clr">A</span>dd <span class="clr">B</span>usiness</h3>
+
+<form #contactDetailForm="ngForm" (ngSubmit)="onSubmit()">
+
+  <div class = "alert alert-danger" *ngIf = "errorMessage">{{errorMessage}}</div>
+
+  <div class="row add-business pd-b-20">
+
+<div class="col-sm-12">
+
+    <h3 class="my-title-3"><span class="clr">B</span>usiness <span class="clr">D</span>etails</h3>
+  
+  
+  <div class="col-sm-12">
+  <div class="form-group">
+    <label>Company Name</label>
+    <input type="text" required #cname="ngModel" [class.is-invalid]="cname.invalid && cname.touched" name="CompanyName" class="form-control" [(ngModel)] ="businessDetail.companyName" >
+    <small class="text-danger" [class.d-none]="cname.valid || cname.untouched">Company Name is required</small>
+  </div>  
+  </div> 
+
+ <div class="col-sm-12">
+  <div class="form-group">
+    <label>Business Type</label>
+    <select required class="custom-select" #type ="ngModel" [class.is-invalid]="type.invalid && type.touched" name="businessType" [(ngModel)] ="businessDetail.businessTypeId">
+      <option value="">Select</option>
+      <option *ngFor="let type of businessTypes"  [ngValue]="type.id">{{type.typeName}}</option>
+    </select>
+    <small class="text-danger" [class.d-none]="type.valid || type.untouched">Please select a business type</small>
+  </div>
+  </div>
+  </div>
+
+ <div class="col-sm-12">
+<h3 class="my-title-3 mrg-t-30"><span class="clr">C</span>otact <span class="clr">D</span>etails</h3>
+</div>
+
+ <div class="col-sm-6">
+  <div class="form-group">
+    <label>Mobile No.</label>
+    <input type="text" required #mobile="ngModel" [class.is-invalid]="mobile.invalid && mobile.touched" name="MobileNumber" class="form-control" [(ngModel)] ="contactDetail.mobileNo" >
+    <small class="text-danger" [class.d-none]="mobile.valid || mobile.untouched">Mobile No. is required</small>
+  </div>  
+  </div>  
+
+ <div class="col-sm-6">
+  <div class="form-group">
+    <label>Landline No.</label>
+    <input type="text" required #landline="ngModel" [class.is-invalid]="landline.invalid && landline.touched" name="LandlineNumber" class="form-control" [(ngModel)] ="contactDetail.landlineNo" >
+    <small class="text-danger" [class.d-none]="landline.valid || landline.untouched">Landline No. is required</small>
+  </div>
+  </div>
+
+ <div class="col-sm-12">
+  <div class="form-group">
+    <label>Contact Persion Name</label>
+    <input type="text" required #cpName="ngModel" [class.is-invalid]="cpName.invalid && cpName.touched" name="ContactPersonName" class="form-control" [(ngModel)] ="contactDetail.contactPersonName" >
+    <small class="text-danger" [class.d-none]="cpName.valid || cpName.untouched">Company Name is required</small>
+  </div>
+  </div>
+
+ <div class="col-sm-6">
+  <div class="form-group">
+    <label>Country</label>
+    <select required class="custom-select" #type ="ngModel" [class.is-invalid]="type.invalid && type.touched" name="businessType" [(ngModel)] ="businessDetail.businessTypeId">
+      <option value="">Select</option>
+      <option *ngFor="let type of businessTypes"  [ngValue]="type.id">{{type.typeName}}</option>
+    </select>
+    <small class="text-danger" [class.d-none]="type.valid || type.untouched">Please select a business type</small>
+  </div>
+  </div>
+
+ <div class="col-sm-6">
+  <div class="form-group">
+    <label>State</label>
+    <select required class="custom-select" #type ="ngModel" [class.is-invalid]="type.invalid && type.touched" name="businessType" [(ngModel)] ="businessDetail.businessTypeId">
+      <option value="">Select</option>
+      <option *ngFor="let type of businessTypes"  [ngValue]="type.id">{{type.typeName}}</option>
+    </select>
+    <small class="text-danger" [class.d-none]="type.valid || type.untouched">Please select a business type</small>
+  </div>
+  </div>
+
+ <div class="col-sm-6">
+  <div class="form-group">
+    <label>City</label>
+    <select required class="custom-select" #type ="ngModel" [class.is-invalid]="type.invalid && type.touched" name="businessType" [(ngModel)] ="businessDetail.businessTypeId">
+      <option value="">Select</option>
+      <option *ngFor="let type of businessTypes"  [ngValue]="type.id">{{type.typeName}}</option>
+    </select>
+    <small class="text-danger" [class.d-none]="type.valid || type.untouched">Please select a business type</small>
+  </div>
+  </div>
+
+ <div class="col-sm-6">
+  <div class="form-group">
+    <label>Area</label>
+    <select required class="custom-select" #type ="ngModel" [class.is-invalid]="type.invalid && type.touched" name="businessType" [(ngModel)] ="businessDetail.businessTypeId">
+      <option value="">Select</option>
+      <option *ngFor="let type of businessTypes"  [ngValue]="type.id">{{type.typeName}}</option>
+    </select>
+    <small class="text-danger" [class.d-none]="type.valid || type.untouched">Please select a business type</small>
+  </div>
+  </div>
+
+
+<div class="col-sm-12">
+  <div class="form-group">
+    <label>Address</label>
+    <input type="text" required #cpName="ngModel" [class.is-invalid]="cpName.invalid && cpName.touched" name="ContactPersonName" class="form-control" [(ngModel)] ="contactDetail.contactPersonName" >
+    <small class="text-danger" [class.d-none]="cpName.valid || cpName.untouched">Company Name is required</small>
+  </div>
+  </div>
+
+
+ <div class="col-sm-6">
+  <div class="form-group">
+    <label>Zip</label>
+    <select required class="custom-select" #type ="ngModel" [class.is-invalid]="type.invalid && type.touched" name="businessType" [(ngModel)] ="businessDetail.businessTypeId">
+      <option value="">Select</option>
+      <option *ngFor="let type of businessTypes"  [ngValue]="type.id">{{type.typeName}}</option>
+    </select>
+    <small class="text-danger" [class.d-none]="type.valid || type.untouched">Please select a business type</small>
+  </div>
+  </div>
+
+ 
+
+ <div class="col-sm-6">
+  <div class="form-group">
+    <label>Landmark</label>
+    <input type="text" required #cpName="ngModel" [class.is-invalid]="cpName.invalid && cpName.touched" name="ContactPersonName" class="form-control" [(ngModel)] ="contactDetail.contactPersonName" >
+    <small class="text-danger" [class.d-none]="cpName.valid || cpName.untouched">Company Name is required</small>
+  </div>
+  </div>
+
+ <div class="col-sm-12">
+
+  <button [disabled]="contactDetailForm.form.invalid" class="btn btn-primary" type="submit">Submit</button>
+</div>
+</div>
+
+</form>
+
+</div>
+</div>
+
+</div>
+         
+      </div>
+  </div>
+
+</div>
+</div>
+</div>

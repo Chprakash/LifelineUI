@@ -1,0 +1,39 @@
+<div class="sign-form container-fluid pad-t-50 my-bg my-bg-1">
+ <div class="d-flex justify-content-center mb-3">
+     <div class="col-sm-6">
+    <div class="p-2 bg-info">
+  
+  <div class="row form-container form-bg">
+  <div class="col-sm-12">
+
+  <h3 class="my-title"><span class="clr">S</span>ign <span class="clr">I</span>n</h3>
+  
+  
+  <form #userSigninForm="ngForm" (ngSubmit)="onSubmit()">
+  
+      <div class = "alert alert-danger" *ngIf = "errorMessage">{{errorMessage}}</div>
+  
+      <div class="form-group">
+          <label>Email ID</label>
+          <input type="text" required #email="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" [class.is-invalid]="email.invalid && email.touched" name="Email" class="form-control" [(ngModel)] ="userSigninDetail.emailID">
+          <div *ngIf="email.errors && (email.invalid || email.touched)">
+              <small class="text-danger" *ngIf="email.errors.required && email.touched">Email is required</small>
+              <small class="text-danger" *ngIf="email.errors.pattern">incorrect email</small>
+          </div>  
+      </div> 
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" required #password="ngModel" [class.is-invalid]="password.invalid && password.touched" name="Password" class="form-control" [(ngModel)] ="userSigninDetail.password">
+        <small class="text-danger" [class.d-none]="password.valid || password.untouched">password is required</small>
+      </div>
+      <button [disabled]="userSigninForm.form.invalid" class="my-btn" type="submit">Submit</button>
+    </form>
+	
+	
+	
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
