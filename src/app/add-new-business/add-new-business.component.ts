@@ -4,6 +4,10 @@ import { BusinessTypeService } from './business-type.service';
 import { RegionService } from './region.service';
 import { IRegion } from "./IRegion";
 import { ICountry } from './country';
+import { IState } from './state';
+import { ICity } from './city';
+import { IArea } from './area';
+import { IZip } from './zip';
 
 @Component({
   selector: 'app-add-new-business',
@@ -12,9 +16,14 @@ import { ICountry } from './country';
 })
 export class AddNewBusinessComponent implements OnInit {
 
-  public businessTypes = [];
-  public iRegion : IRegion;
-  public countries :ICountry[];
+  private businessTypes = [];
+  private iRegion : IRegion;
+  private countries :ICountry[];
+  private states : IState[];
+  private cities : ICity[];
+  private areas : IArea[];
+  private zips: IZip[];
+
   
   private addNewBusiness = new AddNewBusiness("",null,null,null,"",null,null,null,null,"",null,"");
   constructor(private _businessTypeService: BusinessTypeService,
@@ -24,18 +33,50 @@ export class AddNewBusinessComponent implements OnInit {
     this._businessTypeService.getBusinessTypes()
       .subscribe(
         data => {
-          console.log('Success!', data),
-          this.businessTypes = data,
-          console.log('Testing', this.businessTypes);
+          this.businessTypes = data
         });
     
     this._regionService.getCountries()
       .subscribe(
         data => {
-          console.log('Success!', data),
           this.iRegion = data,
-          this.countries = this.iRegion.countries,
-          console.log('Countries', this.countries);
+          this.countries = this.iRegion.countries
+        });
+  }
+
+  getStates(id : number){
+    this._regionService.getStates(id)
+      .subscribe(
+        data => {
+          this.iRegion = data,
+          this.states = this.iRegion.states;
+        });
+  }
+
+  getCities(id : number){
+    this._regionService.getCities(id)
+      .subscribe(
+        data => {
+          this.iRegion = data,
+          this.cities = this.iRegion.cities;
+        });
+  }
+
+  getAreas(id : number){
+    this._regionService.getAreas(id)
+      .subscribe(
+        data => {
+          this.iRegion = data,
+          this.areas = this.iRegion.areas;
+        });
+  }
+
+  getZips(id : number){
+    this._regionService.getZips(id)
+      .subscribe(
+        data => {
+          this.iRegion = data,
+          this.zips = this.iRegion.zips;
         });
   }
 }

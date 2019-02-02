@@ -100,9 +100,9 @@
  <div class="col-sm-6">
   <div class="form-group">
     <label>Country</label>
-    <select required class="custom-select" #country ="ngModel" [class.is-invalid]="country.invalid && country.touched" name="Country" [(ngModel)] ="addNewBusiness.country">
+    <select (change)="getStates(country.value)" required class="custom-select" #country ="ngModel" [class.is-invalid]="country.invalid && country.touched" name="Country" [(ngModel)] ="addNewBusiness.country">
       <option value="">Select</option>
-      <option *ngFor="let country of countries"  [ngValue]="country.id">{{country.countryName}}</option>
+      <option *ngFor="let country of countries"  [ngValue]="country.id">{{country.name}}</option>
     </select>
     <small class="text-danger" [class.d-none]="country.valid || country.untouched">Please select a country</small>
   </div>
@@ -111,9 +111,9 @@
  <div class="col-sm-6">
   <div class="form-group">
     <label>State</label>
-    <select required class="custom-select" #state ="ngModel" [class.is-invalid]="state.invalid && state.touched" name="State" [(ngModel)] ="addNewBusiness.state">
+    <select (change)="getCities(state.value)" required class="custom-select" #state ="ngModel" [class.is-invalid]="state.invalid && state.touched" name="State" [(ngModel)] ="addNewBusiness.state">
       <option value="">Select</option>
-      <option *ngFor="let state of states"  [ngValue]="state.id">{{state.stateName}}</option>
+      <option *ngFor="let state of states"  [ngValue]="state.id">{{state.name}}</option>
     </select>
     <small class="text-danger" [class.d-none]="state.valid || state.untouched">Please select a state</small>
   </div>
@@ -122,9 +122,9 @@
  <div class="col-sm-6">
   <div class="form-group">
     <label>City</label>
-    <select required class="custom-select" #city ="ngModel" [class.is-invalid]="city.invalid && city.touched" name="City" [(ngModel)] ="addNewBusiness.city">
+    <select (change)="getAreas(city.value)" required class="custom-select" #city ="ngModel" [class.is-invalid]="city.invalid && city.touched" name="City" [(ngModel)] ="addNewBusiness.city">
       <option value="">Select</option>
-      <option *ngFor="let city of cities"  [ngValue]="city.id">{{city.cityName}}</option>
+      <option *ngFor="let city of cities"  [ngValue]="city.id">{{city.name}}</option>
     </select>
     <small class="text-danger" [class.d-none]="city.valid || city.untouched">Please select a city</small>
   </div>
@@ -133,9 +133,9 @@
  <div class="col-sm-6">
   <div class="form-group">
     <label>Area</label>
-    <select required class="custom-select" #area ="ngModel" [class.is-invalid]="area.invalid && area.touched" name="Area" [(ngModel)] ="addNewBusiness.area">
+    <select (change)="getZips(area.value)"  required class="custom-select" #area ="ngModel" [class.is-invalid]="area.invalid && area.touched" name="Area" [(ngModel)] ="addNewBusiness.area">
       <option value="">Select</option>
-      <option *ngFor="let area of areas"  [ngValue]="area.id">{{area.areaName}}</option>
+      <option *ngFor="let area of areas"  [ngValue]="area.id">{{area.name}}</option>
     </select>
     <small class="text-danger" [class.d-none]="area.valid || area.untouched">Please select a area</small>
   </div>
@@ -156,7 +156,7 @@
     <label>Zip</label>
     <select required class="custom-select" #zip ="ngModel" [class.is-invalid]="zip.invalid && zip.touched" name="Zip" [(ngModel)] ="addNewBusiness.zip">
       <option value="">Select</option>
-      <option *ngFor="let zip of zips"  [ngValue]="zip.id">{{zip.zipName}}</option>
+      <option *ngFor="let zip of zips"  [ngValue]="zip.id">{{zip.zipCode}}</option>
     </select>
     <small class="text-danger" [class.d-none]="zip.valid || zip.untouched">Please select a zip</small>
   </div>

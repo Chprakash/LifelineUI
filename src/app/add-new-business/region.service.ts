@@ -7,10 +7,31 @@ import { IRegion } from "./IRegion";
 })
 export class RegionService {
 
-  private _url: string = "http://localhost:8093/AccountService/regions"
+  private getCountries_url: string = "http://localhost:8093/AccountService/regions";
+  private getStates_url: string = "http://localhost:8093/AccountService/regions?countryId=";
+  private getCities_url: string = "http://localhost:8093/AccountService/regions?stateId=";
+  private getAeras_url: string = "http://localhost:8093/AccountService/regions?cityId=";
+  private getZips_url: string = "http://localhost:8093/AccountService/regions?areaId=";
+
   constructor(private http: HttpClient) { }
 
   getCountries(){
-    return this.http.get<IRegion>(this._url)
+    return this.http.get<IRegion>(this.getCountries_url);
+  }
+
+  getStates(countryId : number){
+    return this.http.get<IRegion>(this.getStates_url+countryId)
+  }
+
+  getCities(stateId : number){
+    return this.http.get<IRegion>(this.getCities_url+stateId)
+  }
+
+  getAreas(cityId : number){
+    return this.http.get<IRegion>(this.getAeras_url+cityId)
+  }
+
+  getZips(areaId : number){
+    return this.http.get<IRegion>(this.getZips_url+areaId)
   }
 }
