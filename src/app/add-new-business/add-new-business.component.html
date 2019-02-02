@@ -52,7 +52,7 @@
   <div class="col-sm-12">
   <div class="form-group">
     <label>Company Name</label>
-    <input type="text" required #cname="ngModel" [class.is-invalid]="cname.invalid && cname.touched" name="CompanyName" class="form-control" [(ngModel)] ="businessDetail.companyName" >
+    <input type="text" required #cname="ngModel" [class.is-invalid]="cname.invalid && cname.touched" name="CompanyName" class="form-control" [(ngModel)] ="addNewBusiness.companyName" >
     <small class="text-danger" [class.d-none]="cname.valid || cname.untouched">Company Name is required</small>
   </div>  
   </div> 
@@ -60,7 +60,7 @@
  <div class="col-sm-12">
   <div class="form-group">
     <label>Business Type</label>
-    <select required class="custom-select" #type ="ngModel" [class.is-invalid]="type.invalid && type.touched" name="businessType" [(ngModel)] ="businessDetail.businessTypeId">
+    <select required class="custom-select" #type ="ngModel" [class.is-invalid]="type.invalid && type.touched" name="businessType" [(ngModel)] ="addNewBusiness.businessType">
       <option value="">Select</option>
       <option *ngFor="let type of businessTypes"  [ngValue]="type.id">{{type.typeName}}</option>
     </select>
@@ -76,7 +76,7 @@
  <div class="col-sm-6">
   <div class="form-group">
     <label>Mobile No.</label>
-    <input type="text" required #mobile="ngModel" [class.is-invalid]="mobile.invalid && mobile.touched" name="MobileNumber" class="form-control" [(ngModel)] ="contactDetail.mobileNo" >
+    <input type="text" required #mobile="ngModel" [class.is-invalid]="mobile.invalid && mobile.touched" name="MobileNumber" class="form-control" [(ngModel)] ="addNewBusiness.mobileNuber" >
     <small class="text-danger" [class.d-none]="mobile.valid || mobile.untouched">Mobile No. is required</small>
   </div>  
   </div>  
@@ -84,7 +84,7 @@
  <div class="col-sm-6">
   <div class="form-group">
     <label>Landline No.</label>
-    <input type="text" required #landline="ngModel" [class.is-invalid]="landline.invalid && landline.touched" name="LandlineNumber" class="form-control" [(ngModel)] ="contactDetail.landlineNo" >
+    <input type="text" required #landline="ngModel" [class.is-invalid]="landline.invalid && landline.touched" name="LandlineNumber" class="form-control" [(ngModel)] ="addNewBusiness.landlineNumber" >
     <small class="text-danger" [class.d-none]="landline.valid || landline.untouched">Landline No. is required</small>
   </div>
   </div>
@@ -92,7 +92,7 @@
  <div class="col-sm-12">
   <div class="form-group">
     <label>Contact Persion Name</label>
-    <input type="text" required #cpName="ngModel" [class.is-invalid]="cpName.invalid && cpName.touched" name="ContactPersonName" class="form-control" [(ngModel)] ="contactDetail.contactPersonName" >
+    <input type="text" required #cpName="ngModel" [class.is-invalid]="cpName.invalid && cpName.touched" name="ContactPersonName" class="form-control" [(ngModel)] ="addNewBusiness.contactPersonName" >
     <small class="text-danger" [class.d-none]="cpName.valid || cpName.untouched">Company Name is required</small>
   </div>
   </div>
@@ -100,44 +100,44 @@
  <div class="col-sm-6">
   <div class="form-group">
     <label>Country</label>
-    <select required class="custom-select" #type ="ngModel" [class.is-invalid]="type.invalid && type.touched" name="businessType" [(ngModel)] ="businessDetail.businessTypeId">
+    <select required class="custom-select" #country ="ngModel" [class.is-invalid]="country.invalid && country.touched" name="Country" [(ngModel)] ="addNewBusiness.country">
       <option value="">Select</option>
-      <option *ngFor="let type of businessTypes"  [ngValue]="type.id">{{type.typeName}}</option>
+      <option *ngFor="let country of countries"  [ngValue]="country.id">{{country.countryName}}</option>
     </select>
-    <small class="text-danger" [class.d-none]="type.valid || type.untouched">Please select a business type</small>
+    <small class="text-danger" [class.d-none]="country.valid || country.untouched">Please select a country</small>
   </div>
   </div>
 
  <div class="col-sm-6">
   <div class="form-group">
     <label>State</label>
-    <select required class="custom-select" #type ="ngModel" [class.is-invalid]="type.invalid && type.touched" name="businessType" [(ngModel)] ="businessDetail.businessTypeId">
+    <select required class="custom-select" #state ="ngModel" [class.is-invalid]="state.invalid && state.touched" name="State" [(ngModel)] ="addNewBusiness.state">
       <option value="">Select</option>
-      <option *ngFor="let type of businessTypes"  [ngValue]="type.id">{{type.typeName}}</option>
+      <option *ngFor="let state of states"  [ngValue]="state.id">{{state.stateName}}</option>
     </select>
-    <small class="text-danger" [class.d-none]="type.valid || type.untouched">Please select a business type</small>
+    <small class="text-danger" [class.d-none]="state.valid || state.untouched">Please select a state</small>
   </div>
   </div>
 
  <div class="col-sm-6">
   <div class="form-group">
     <label>City</label>
-    <select required class="custom-select" #type ="ngModel" [class.is-invalid]="type.invalid && type.touched" name="businessType" [(ngModel)] ="businessDetail.businessTypeId">
+    <select required class="custom-select" #city ="ngModel" [class.is-invalid]="city.invalid && city.touched" name="City" [(ngModel)] ="addNewBusiness.city">
       <option value="">Select</option>
-      <option *ngFor="let type of businessTypes"  [ngValue]="type.id">{{type.typeName}}</option>
+      <option *ngFor="let city of cities"  [ngValue]="city.id">{{city.cityName}}</option>
     </select>
-    <small class="text-danger" [class.d-none]="type.valid || type.untouched">Please select a business type</small>
+    <small class="text-danger" [class.d-none]="city.valid || city.untouched">Please select a city</small>
   </div>
   </div>
 
  <div class="col-sm-6">
   <div class="form-group">
     <label>Area</label>
-    <select required class="custom-select" #type ="ngModel" [class.is-invalid]="type.invalid && type.touched" name="businessType" [(ngModel)] ="businessDetail.businessTypeId">
+    <select required class="custom-select" #area ="ngModel" [class.is-invalid]="area.invalid && area.touched" name="Area" [(ngModel)] ="addNewBusiness.area">
       <option value="">Select</option>
-      <option *ngFor="let type of businessTypes"  [ngValue]="type.id">{{type.typeName}}</option>
+      <option *ngFor="let area of areas"  [ngValue]="area.id">{{area.areaName}}</option>
     </select>
-    <small class="text-danger" [class.d-none]="type.valid || type.untouched">Please select a business type</small>
+    <small class="text-danger" [class.d-none]="area.valid || area.untouched">Please select a area</small>
   </div>
   </div>
 
@@ -145,8 +145,8 @@
 <div class="col-sm-12">
   <div class="form-group">
     <label>Address</label>
-    <input type="text" required #cpName="ngModel" [class.is-invalid]="cpName.invalid && cpName.touched" name="ContactPersonName" class="form-control" [(ngModel)] ="contactDetail.contactPersonName" >
-    <small class="text-danger" [class.d-none]="cpName.valid || cpName.untouched">Company Name is required</small>
+    <input type="text" required #address="ngModel" [class.is-invalid]="address.invalid && address.touched" name="Address" class="form-control" [(ngModel)] ="addNewBusiness.address" >
+    <small class="text-danger" [class.d-none]="address.valid || address.untouched">Address is required</small>
   </div>
   </div>
 
@@ -154,11 +154,11 @@
  <div class="col-sm-6">
   <div class="form-group">
     <label>Zip</label>
-    <select required class="custom-select" #type ="ngModel" [class.is-invalid]="type.invalid && type.touched" name="businessType" [(ngModel)] ="businessDetail.businessTypeId">
+    <select required class="custom-select" #zip ="ngModel" [class.is-invalid]="zip.invalid && zip.touched" name="Zip" [(ngModel)] ="addNewBusiness.zip">
       <option value="">Select</option>
-      <option *ngFor="let type of businessTypes"  [ngValue]="type.id">{{type.typeName}}</option>
+      <option *ngFor="let zip of zips"  [ngValue]="zip.id">{{zip.zipName}}</option>
     </select>
-    <small class="text-danger" [class.d-none]="type.valid || type.untouched">Please select a business type</small>
+    <small class="text-danger" [class.d-none]="zip.valid || zip.untouched">Please select a zip</small>
   </div>
   </div>
 
@@ -167,8 +167,7 @@
  <div class="col-sm-6">
   <div class="form-group">
     <label>Landmark</label>
-    <input type="text" required #cpName="ngModel" [class.is-invalid]="cpName.invalid && cpName.touched" name="ContactPersonName" class="form-control" [(ngModel)] ="contactDetail.contactPersonName" >
-    <small class="text-danger" [class.d-none]="cpName.valid || cpName.untouched">Company Name is required</small>
+    <input type="text" #landmark="ngModel" [class.is-invalid]="landmark.invalid && landmark.touched" name="LandMark" class="form-control" [(ngModel)] ="addNewBusiness.landmark" >
   </div>
   </div>
 

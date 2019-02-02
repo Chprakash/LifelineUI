@@ -6,7 +6,6 @@ import { FormsModule }   from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { TopNavComponent } from './top-nav/top-nav.component';
 import { SideMenuComponent } from './side-menu/side-menu.component';
-import { AddNewBusinessComponent } from './add-new-business/add-new-business.component';
 
 @NgModule({
   declarations: [
